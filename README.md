@@ -1,22 +1,14 @@
-![Room for Change](http://sturdyhelmetgames.com/roomforchange_html/pyramid.png)
-
 ## Room for Change
 
-RfC is a randomly generated action RPG. You play as a chubby archeologist who is tasked to retrieve three sacred artefacts from the pyramid of the legendary Pharaohs.
+RfC es un juego RPG de acción que se genera aleatoriamente. El jugador es un arqueólogo gordito cuya tarea es rescatar tres artefactos sagrados ocultos en la legendaria piramide del faraon.
 
-Your way is blocked by stone chamber doors that can't be opened unless there is also a door on the other side. To access other chambers you must change the layout of the maze by moving the chambers in vertical or horizontal direction.
+Tu camino está bloqueado por puertas de piedra que no pueden ser abiertas al menos que haya una puerta de piedra del otro lado de la cámara en la que te encontrás. Para acceder otras cámaras debes mover la cámara en sentido horizontal y vertical dentro del laberinto.
 
-But it's not as easy as it sounds! The pyramid is full of dangerous spiders, snakes and mummies!
+Pero no es tan sencillo como suena! La pirámide está llena de arañas peligrosas, serpientes y momias!
 
-Try to collect all three artefacts and escape the pyramid! Have fun! :)
+Intentá collecionar los tres artefactos y escapar de la pirámide! Que lo disfrutes! :)
 
-![Room for Change](http://sturdyhelmetgames.com/roomforchange_html/screenshot2.png)
-
-## Links to the Game
-
-* http://www.sturdyhelmetgames.com/roomforchange_html (WebGL, Chrome recommended)
-
-## Frameworks and tools
+## Frameworks y herramientas usadas
 
 * LibGDX game framework http://libgdx.badlogicgames.com/
 * Eclipse IDE http://www.eclipse.org/
