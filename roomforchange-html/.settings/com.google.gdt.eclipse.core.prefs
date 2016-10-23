@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+jarsExcludedFromWebInfLib=/Users/user/Downloads/game-off-2013-master/roomforchange/roomforchange-html/war/WEB-INF/lib/gdx-backend-gwt-sources.jar|/Users/user/Downloads/gdx-backend-gwt.jar|/Users/user/Downloads/game-off-2013-master/roomforchange/roomforchange-html/war/WEB-INF/lib/gdx-backend-gwt.jar|/Users/user/Downloads/game-off-2013-master/roomforchange/roomforchange/libs/gdx-sources.jar|/Users/user/Downloads/game-off-2013-master/roomforchange/roomforchange/libs/gdx.jar
+warSrcDir=war
+warSrcDirIsOutput=true
