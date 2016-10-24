@@ -40,7 +40,8 @@ public class Scroll extends Item {
 
 	@Override
 	public void collectItem() {
-		super.collectItem();
+//		super.collectItem();
+		Assets.getGameSound(Assets.SOUND_COLLECT).play(0.5f);
 		level.player.gotScroll = true;
 		aliveTick = 10f;
 	}

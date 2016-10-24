@@ -82,8 +82,8 @@ public abstract class Item extends Entity {
 		}
 	}
 
-	public void collectItem() {
-		Assets.getGameSound(Assets.SOUND_COLLECT).play(0.5f);
+	public void collectItem() {		
+		Assets.getGameSound(Assets.SOUND_PICKUP_ITEM).play(0.5f);
 	}
 
 	/**

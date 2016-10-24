@@ -13,7 +13,12 @@
    limitations under the License. */
 package com.sturdyhelmetgames.roomforchange.screen;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.sturdyhelmetgames.roomforchange.RoomForChangeGame;
 import com.sturdyhelmetgames.roomforchange.assets.Assets;
 
@@ -46,4 +51,24 @@ public class MenuScreen extends Basic2DScreen {
 		return super.keyDown(keycode);
 	}
 
+	@Override
+	public void show() {
+		TextButtonStyle textButtonStyle = new TextButtonStyle();
+		BitmapFont font = new BitmapFont();
+		textButtonStyle.font = font;
+		TextButton button1 = new TextButton("This is a button!!!", textButtonStyle);
+		TextButton button2 = new TextButton("This is a button!!!", textButtonStyle);
+		TextButton button3 = new TextButton("This is a button!!!", textButtonStyle);
+
+		Table table = new Table();
+		table.setFillParent(true);
+		table.center().center();
+		
+		table.add(button1);
+		table.row();
+		table.add(button2);
+		table.row();
+		table.add(button3);
+		table.row();
+	}
 }

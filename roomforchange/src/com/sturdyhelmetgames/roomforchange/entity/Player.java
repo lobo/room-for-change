@@ -150,10 +150,18 @@ public class Player extends Entity {
 				hitBounds.y -= HIT_DISTANCE;
 			}
 
+			double aux_health;
+			boolean miss_hit = true;
 			for (int i = 0; i < level.entities.size; i++) {
 				final Entity entity = level.entities.get(i);
+				aux_health = entity.height;
 				entity.hit(hitBounds);
+				if(aux_health != entity.height)
+					miss_hit = false;				
 			}
+			
+			if(miss_hit)
+				Assets.getGameSound(Assets.SOUND_HIT_AIR).play(0.6f);
 
 			// double the hit distance for tiles
 			if (direction == Direction.LEFT) {

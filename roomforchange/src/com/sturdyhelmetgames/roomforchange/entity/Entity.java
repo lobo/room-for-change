@@ -155,7 +155,6 @@ public class Entity {
 
 			if (state == EntityState.WALKING) {
 				vel.lerp(Vector2.Zero, getInertia() * fixedStep);
-				System.out.println("walking");
 			} else {
 				vel.scl(fixedStep);
 			}

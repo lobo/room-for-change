@@ -42,13 +42,15 @@ public class Assets {
 	private static final String ATLAS_FILEPATH_OBJECTS_ALL = FOLDER_DATA
 			+ ATLAS_FILE_OBJECTS_ALL + ".atlas";
 
-	public static final String SOUND_STONEDOOR = FOLDER_SOUNDS
-			+ "stonedoor.mp3";
+	public static final String SOUND_STONEDOOR = FOLDER_SOUNDS + "stonedoor.mp3";
 	public static final String SOUND_ENEMYDIE = FOLDER_SOUNDS + "enemydie.wav";
-	public static final String SOUND_COLLECT = FOLDER_SOUNDS + "collect.wav";
+//	public static final String SOUND_ENEMYDIE = FOLDER_SOUNDS + "enemydie.mp3";
+	public static final String SOUND_COLLECT = FOLDER_SOUNDS + "collect.mp3";
+	public static final String SOUND_PICKUP_ITEM = FOLDER_SOUNDS + "pickupitem.wav";
 	public static final String SOUND_DEATH = FOLDER_SOUNDS + "death.wav";
 //	public static final String SOUND_HIT = FOLDER_SOUNDS + "hit.wav";
 	public static final String SOUND_HIT = FOLDER_SOUNDS + "swordthatcuts.wav";
+	public static final String SOUND_HIT_AIR = FOLDER_SOUNDS + "swordthroughtheair.wav";
 	public static final String SOUND_STEP = FOLDER_SOUNDS + "step2.wav";
 	public static final String SOUND_EXPLOSION = FOLDER_SOUNDS + "explosion.wav";
 //	public static final String SOUND_MUSIC = FOLDER_SOUNDS + "dungeon_music.mp3";
@@ -140,6 +142,8 @@ public class Assets {
 		assetManager.load(SOUND_MUSIC, Sound.class);
 
 		assetManager.load(SOUND_STEP, Sound.class);
+		assetManager.load(SOUND_HIT_AIR, Sound.class);
+		assetManager.load(SOUND_PICKUP_ITEM, Sound.class);
 		
 		finishLoading();
 		setupAssets();
