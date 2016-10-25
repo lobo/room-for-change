@@ -21,6 +21,9 @@ import com.sturdyhelmetgames.roomforchange.level.Level;
 
 public class Snake extends Enemy {
 
+	public int counter_fps = 0;
+
+	
 	public Snake(float x, float y, Level level) {
 		super(x, y, 1f, 1f, level);
 		health = 2;
@@ -49,6 +52,7 @@ public class Snake extends Enemy {
 
 			batch.draw(animation.getKeyFrame(stateTime, true), bounds.x - 0.1f,
 					bounds.y - 0.1f, width, height);
+			
 		}
 	}
 

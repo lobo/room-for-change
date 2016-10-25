@@ -391,44 +391,110 @@ public class Level {
 		spawnNewEnemiesAround(currentPiece, currentPieceRelativePos);
 	}
 
+//	private void spawnNewEnemiesAround(LabyrinthPiece piece,
+//			Vector2 currentPieceRelativePos) {
+//		final RoomTemplate template = piece.roomTemplate;
+//		for (int i = 0; i < template.getEntityTypes().size; i++) {
+//
+//			final float randomX = currentPieceRelativePos.x + 1
+//					+ MathUtils.random(9);
+//			final float randomY = currentPieceRelativePos.y + 1
+//					+ MathUtils.random(5);
+//			final Class<?> entityType = template.getEntityTypes().get(i);
+//			if (entityType == Mummy.class) {
+//				entities.add(new Mummy(randomX, randomY, this));
+//			} else if (entityType == Snake.class) {
+//				entities.add(new Snake(randomX, randomY, this));
+//			} else if (entityType == Spider.class) {
+//				entities.add(new Spider(randomX, randomY, this));
+//			} else if (entityType == KingSpider.class) {
+//				entities.add(new KingSpider(randomX, randomY, this));
+//			}
+//		}
+//
+//		final float randomX = currentPieceRelativePos.x + 2	+ MathUtils.random(7);
+//		final float randomY = currentPieceRelativePos.y + 2 + MathUtils.random(4);
+//		
+//		if (template.treasureType != null) {
+//			if (template.treasureType == Scroll.class && !player.gotScroll) {
+//				entities.add(new Scroll(randomX, randomY, this));
+//			} else if (template.treasureType == Talisman.class && !player.gotTalisman) {
+//				entities.add(new Talisman(randomX, randomY, this));
+//			} else if (template.treasureType == Gem.class && !player.gotGem) {
+//				entities.add(new Gem(randomX, randomY, this));
+//			}
+//		}
+//		if (template.hasExit) {
+//			entities.add(new Exit(currentPieceRelativePos.x + 3,
+//					currentPieceRelativePos.y + 1, this));
+//		}
+//	}
+	
 	private void spawnNewEnemiesAround(LabyrinthPiece piece,
 			Vector2 currentPieceRelativePos) {
-		final RoomTemplate template = piece.roomTemplate;
+		final RoomTemplate template = piece.roomTemplate;		
+		
+		System.out.println("enemigos:" + template.getEntityTypes().size);
+		
 		for (int i = 0; i < template.getEntityTypes().size; i++) {
 
-			final float randomX = currentPieceRelativePos.x + 1
-					+ MathUtils.random(9);
-			final float randomY = currentPieceRelativePos.y + 1
-					+ MathUtils.random(5);
-			final Class<?> entityType = template.getEntityTypes().get(i);
-			if (entityType == Mummy.class) {
-				entities.add(new Mummy(randomX, randomY, this));
-			} else if (entityType == Snake.class) {
-				entities.add(new Snake(randomX, randomY, this));
-			} else if (entityType == Spider.class) {
+			final float randomX = currentPieceRelativePos.x + 1	+ MathUtils.random(9);
+			final float randomY = currentPieceRelativePos.y + 1	+ MathUtils.random(5);
+						
+			//enemies level 1
+			if(player.collectedItems() == 0) {
 				entities.add(new Spider(randomX, randomY, this));
-			} else if (entityType == KingSpider.class) {
-				entities.add(new KingSpider(randomX, randomY, this));
-			}
+			} 
+
+			//enemies level 2
+			if(player.collectedItems() == 1) {
+				final Class<?> entityType = template.getEntityTypes().get(i);
+				
+				if(entityType == Spider.class || entityType == KingSpider.class)
+					entities.add(new Spider(randomX, randomY, this));
+				else
+					entities.add(new Snake(randomX, randomY, this));
+			} 
+
+			//enemies level 3
+			if(player.collectedItems() == 2) {
+				final Class<?> entityType = template.getEntityTypes().get(i);
+				
+				if(entityType == Spider.class || entityType == KingSpider.class)
+					entities.add(new KingSpider(randomX, randomY, this));
+				else
+					entities.add(new Snake(randomX, randomY, this));
+			} 
+			
+			//enemies escape
+			if(player.collectedItems() > 2) {
+				final Class<?> entityType = template.getEntityTypes().get(i);
+				
+				if(entityType == Spider.class || entityType == KingSpider.class)
+					entities.add(new KingSpider(randomX, randomY, this));
+				else {
+					if(Math.random() < 0.25)
+						entities.add(new Snake(randomX, randomY, this));
+					else
+						entities.add(new Mummy(randomX, randomY, this));					
+				}
+			} 
 		}
 
-		final float randomX = currentPieceRelativePos.x + 2
-				+ MathUtils.random(7);
-		final float randomY = currentPieceRelativePos.y + 2
-				+ MathUtils.random(4);
+		final float randomX = currentPieceRelativePos.x + 2	+ MathUtils.random(7);
+		final float randomY = currentPieceRelativePos.y + 2 + MathUtils.random(4);
+		
 		if (template.treasureType != null) {
 			if (template.treasureType == Scroll.class && !player.gotScroll) {
 				entities.add(new Scroll(randomX, randomY, this));
-			} else if (template.treasureType == Talisman.class
-					&& !player.gotTalisman) {
+			} else if (template.treasureType == Talisman.class && !player.gotTalisman) {
 				entities.add(new Talisman(randomX, randomY, this));
 			} else if (template.treasureType == Gem.class && !player.gotGem) {
 				entities.add(new Gem(randomX, randomY, this));
 			}
 		}
 		if (template.hasExit) {
-			entities.add(new Exit(currentPieceRelativePos.x + 3,
-					currentPieceRelativePos.y + 1, this));
+			entities.add(new Exit(currentPieceRelativePos.x + 3, currentPieceRelativePos.y + 1, this));
 		}
 	}
 

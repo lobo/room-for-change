@@ -26,15 +26,19 @@ public class Player extends Entity {
 	public float dyingAnimState = 0f;
 	public float dyingTime = 0f;
 	public float maxDyingTime = 3f;
-	public int health = 10;
-	public int bombs = 5;
-	public int maxHealth = 10;
+	public int health = 3;
+	public int bombs = 2;
+	public int maxHealth = 3;
 	public final Rectangle hitBounds = new Rectangle(0f, 0f, 0.8f, 0.8f);
 	private float tryHitTime = 0.3f;
 
 	public boolean gotScroll = false;
 	public boolean gotTalisman = false;
 	public boolean gotGem = false;
+
+	public boolean getHeart1 = false;
+	public boolean getHeart2 = false;
+	public boolean getHeart3 = false;
 	
 	public int counter_fps = 0;
 	
@@ -126,7 +130,20 @@ public class Player extends Entity {
 			}
 		}
 
-//		walking();
+		if(collectedItems() == 1 && !getHeart1 ) {
+			maxHealth++;
+			getHeart1 = true;
+		}
+
+		if(collectedItems() == 2 && !getHeart2 ) {
+			maxHealth++;
+			getHeart2 = true;
+		}
+		
+		if(collectedItems() == 3 && !getHeart3 ) {
+			maxHealth++;
+			getHeart3 = true;
+		}
 		
 		super.update(fixedStep);
 
@@ -227,8 +244,18 @@ public class Player extends Entity {
 	
 	public void moveWithAccel(Direction dir) {
 			super.moveWithAccel(dir);
-//			if(!isNotWalking()) 
-//				Assets.getGameSound(Assets.SOUND_STEP).play(0.5f);
-
+	}
+	
+	public int collectedItems() {
+		int collectedItems = 0;
+		
+		if(gotGem)
+			collectedItems++;
+		if(gotScroll)
+			collectedItems++;
+		if(gotTalisman)
+			collectedItems++;
+		
+		return collectedItems;
 	}
 }

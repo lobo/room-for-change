@@ -43,13 +43,14 @@ public class HelpScreen extends Basic2DScreen {
 		spriteBatch.setColor(originalColor);
 		spriteBatch.draw(Assets.getFullGameObject("help"), -2f, -1f, 4f, 2f);
 		spriteBatch.end();
-
 	}
 
 	@Override
 	public boolean keyDown(int keycode) {
 		if (keycode == Keys.SPACE) {
 			game.setScreen(gameScreen);
+			Assets.getGameSound(Assets.SOUND_INTRO).stop();
+
 		}
 		return super.keyDown(keycode);
 	}
@@ -57,6 +58,7 @@ public class HelpScreen extends Basic2DScreen {
 	@Override
 	public void hide() {
 		super.hide();
+		Assets.getGameSound(Assets.SOUND_INTRO).stop();
 		Assets.getGameSound(Assets.SOUND_MUSIC).loop(0.4f);
 	}
 

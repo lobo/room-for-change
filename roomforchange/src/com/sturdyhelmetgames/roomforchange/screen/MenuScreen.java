@@ -25,7 +25,9 @@ import com.sturdyhelmetgames.roomforchange.assets.Assets;
 public class MenuScreen extends Basic2DScreen {
 
 	public MenuScreen(RoomForChangeGame game) {
-		super(game, 12, 8);
+		super(game, 12, 8);		
+		Assets.getGameSound(Assets.SOUND_INTRO).loop(0.4f);
+
 	}
 
 	@Override

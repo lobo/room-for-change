@@ -224,11 +224,11 @@ public class GameScreen extends Basic2DScreen {
 				level.player.moveWithAccel(Direction.LEFT);
 			}
 
-			if (Gdx.input.isKeyPressed(Keys.MINUS)) {
+			if (Gdx.input.isKeyPressed(Keys.I)) {
 				camera.zoom += 0.1f;
 				camera.update();
 			}
-			if (Gdx.input.isKeyPressed(Keys.PLUS)) {
+			if (Gdx.input.isKeyPressed(Keys.O)) {
 				camera.zoom -= 0.1f;
 				camera.update();
 			}
@@ -254,6 +254,9 @@ public class GameScreen extends Basic2DScreen {
 		}
 		if (keycode == Keys.X) {
 			level.player.dropBomb();
+		}
+		if (keycode == Keys.P) {
+			pauseScreen();
 		}
 		// if (keycode == Keys.K) {
 		// level.entities.add(new ExplodingBomb(level.player.bounds.x + 2f,
@@ -323,12 +326,22 @@ public class GameScreen extends Basic2DScreen {
 		game.setScreen(new GameOverScreen(game, this));
 	}
 
+	public void pauseScreen() {
+		game.setScreen(new PauseScreen(game, this));
+	}
+	
 	@Override
 	public void show() {
 		super.show();
 		Gdx.input.setInputProcessor(this);
 	}
 
+	@Override
+	public void resume() {
+		super.resume();
+		Assets.getGameSound(Assets.SOUND_MUSIC).resume();;
+	}
+	
 	public void finishGame() {
 		game.setScreen(new WinTheGameScreen(game, this));
 	}

@@ -78,6 +78,9 @@ public class RoomTemplate {
 		if (difficultyLevel == 1) {
 			difficultyLevel = 1;
 		}
+		
+		System.out.println("difficultyLevel: " + difficultyLevel);
+		
 		for (int i = 0; i < difficultyLevel; i++) {
 			final int enemyType = MathUtils.random(100);
 			if (enemyType < 30) {

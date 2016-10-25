@@ -39,9 +39,8 @@ public class Assets {
 	private static final String FOLDER_DATA = "data/";
 	private static final String FOLDER_SOUNDS = "data/sounds/";
 	private static final String FOLDER_PARTICLE = "data/particles/";
-	private static final String ATLAS_FILEPATH_OBJECTS_ALL = FOLDER_DATA
-			+ ATLAS_FILE_OBJECTS_ALL + ".atlas";
-
+	private static final String ATLAS_FILEPATH_OBJECTS_ALL = FOLDER_DATA + ATLAS_FILE_OBJECTS_ALL + ".atlas";
+	
 	public static final String SOUND_STONEDOOR = FOLDER_SOUNDS + "stonedoor.mp3";
 	public static final String SOUND_ENEMYDIE = FOLDER_SOUNDS + "enemydie.wav";
 //	public static final String SOUND_ENEMYDIE = FOLDER_SOUNDS + "enemydie.mp3";
@@ -54,8 +53,10 @@ public class Assets {
 	public static final String SOUND_STEP = FOLDER_SOUNDS + "step2.wav";
 	public static final String SOUND_EXPLOSION = FOLDER_SOUNDS + "explosion.wav";
 //	public static final String SOUND_MUSIC = FOLDER_SOUNDS + "dungeon_music.mp3";
-	public static final String SOUND_MUSIC = FOLDER_SOUNDS + "gameplay.mp3";
-
+	public static final String SOUND_MUSIC = FOLDER_SOUNDS + "gameplay2.wav";
+//	public static final String SOUND_MUSIC = FOLDER_SOUNDS + "Dark Cave Music - Trickster Imps.mp3";
+	public static final String SOUND_INTRO = FOLDER_SOUNDS + "intro.wav";
+	
 	public static final String PARTICLE_SANDSTREAM = FOLDER_PARTICLE
 			+ "sandstream.p";
 	public static final String PARTICLE_SANDSMOKE_RIGHT = FOLDER_PARTICLE
@@ -144,7 +145,7 @@ public class Assets {
 		assetManager.load(SOUND_STEP, Sound.class);
 		assetManager.load(SOUND_HIT_AIR, Sound.class);
 		assetManager.load(SOUND_PICKUP_ITEM, Sound.class);
-		
+		assetManager.load(SOUND_INTRO, Sound.class);
 		finishLoading();
 		setupAssets();
 		setupPieceTemplates();
