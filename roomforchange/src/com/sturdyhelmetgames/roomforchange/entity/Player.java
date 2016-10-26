@@ -224,7 +224,7 @@ public class Player extends Entity {
 	}
 
 	public void gainHealth() {
-		if(health + 1 < maxHealth)
+		if(health + 1 <= maxHealth)
 			health++;
 	}
 

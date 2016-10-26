@@ -51,6 +51,11 @@ public class GameScreen extends Basic2DScreen {
 
 	private Level level;
 
+	private boolean isLevel0 = true;
+	private boolean isLevel1 = true;
+	private boolean isLevel2 = true;
+	private boolean isLevel3 = true;
+	
 	public GameScreen() {
 		super();
 		screenQuake = new ScreenQuake(camera);
@@ -92,6 +97,19 @@ public class GameScreen extends Basic2DScreen {
 
 		screenQuake.update(fixedStep);
 		cameraTweenManager.update(fixedStep);
+		
+		if(level.player.collectedItems() == 1 && isLevel0) {
+			isLevel0 = false;
+			Assets.getGameSound(Assets.SOUND_MUSIC).stop();
+			Assets.getGameSound(Assets.SOUND_LEVEL2).loop(0.4f);
+		}
+		if(level.player.collectedItems() == 2 && isLevel1) {
+			isLevel1 = false;
+		}
+		if(level.player.collectedItems() == 3 && isLevel2) {
+			isLevel2 = false;
+		}
+		
 	}
 
 	@Override

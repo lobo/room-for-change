@@ -54,6 +54,7 @@ public class Assets {
 	public static final String SOUND_EXPLOSION = FOLDER_SOUNDS + "explosion.wav";
 //	public static final String SOUND_MUSIC = FOLDER_SOUNDS + "dungeon_music.mp3";
 	public static final String SOUND_MUSIC = FOLDER_SOUNDS + "gameplay2.wav";
+	public static final String SOUND_LEVEL2 = FOLDER_SOUNDS + "level2.wav";
 //	public static final String SOUND_MUSIC = FOLDER_SOUNDS + "Dark Cave Music - Trickster Imps.mp3";
 	public static final String SOUND_INTRO = FOLDER_SOUNDS + "intro.wav";
 	
@@ -151,6 +152,8 @@ public class Assets {
 		assetManager.load(SOUND_HIT_AIR, Sound.class);
 		assetManager.load(SOUND_PICKUP_ITEM, Sound.class);
 		assetManager.load(SOUND_INTRO, Sound.class);
+		assetManager.load(SOUND_LEVEL2, Sound.class);
+		
 		finishLoading();
 		setupAssets();
 		setupPieceTemplates();
