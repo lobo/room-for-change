@@ -96,6 +96,11 @@ public class Assets {
 	public static Animation snakeWalkRight;
 	public static Animation snakeWalkLeft;
 
+	public static Animation kingSnakeWalkFront;
+	public static Animation kingSnakeWalkBack;
+	public static Animation kingSnakeWalkRight;
+	public static Animation kingSnakeWalkLeft;
+	
 	public static Animation playerWalkFront;
 	public static Animation playerWalkBack;
 	public static Animation playerWalkRight;
@@ -235,6 +240,20 @@ public class Assets {
 		snakeWalkLeft = new Animation(0.1f, snakeLeftRegions);
 		snakeWalkRight = new Animation(0.1f,
 				flipRegionsHorizontally(snakeLeftRegions));
+		
+		kingSnakeWalkFront = new Animation(0.1f, new TextureRegion[] {
+				getGameObject("king-snake-front-1"), getGameObject("king-snake-front-2"),
+				getGameObject("king-snake-front-3") });
+		kingSnakeWalkBack = new Animation(0.1f, new TextureRegion[] {
+				getGameObject("king-snake-back-1"), getGameObject("king-snake-back-2"),
+				getGameObject("king-snake-back-3") });
+
+		final TextureRegion[] kingSnakeLeftRegions = new TextureRegion[] {
+				getGameObject("king-snake-left-1"), getGameObject("king-snake-left-2"),
+				getGameObject("king-snake-left-3") };
+		kingSnakeWalkLeft = new Animation(0.1f, kingSnakeLeftRegions);
+		kingSnakeWalkRight = new Animation(0.1f,
+				flipRegionsHorizontally(kingSnakeLeftRegions));
 
 		mummyWalkBack = new Animation(0.2f, new TextureRegion[] {
 				getGameObject("mummy-back-1"), getGameObject("mummy-back-2"),

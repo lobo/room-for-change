@@ -224,7 +224,8 @@ public class Player extends Entity {
 	}
 
 	public void gainHealth() {
-		health++;
+		if(health + 1 < maxHealth)
+			health++;
 	}
 
 	public boolean isInvulnerable() {

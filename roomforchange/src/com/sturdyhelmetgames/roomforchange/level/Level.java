@@ -24,6 +24,7 @@ import com.sturdyhelmetgames.roomforchange.assets.Assets;
 import com.sturdyhelmetgames.roomforchange.entity.Entity;
 import com.sturdyhelmetgames.roomforchange.entity.Exit;
 import com.sturdyhelmetgames.roomforchange.entity.Gem;
+import com.sturdyhelmetgames.roomforchange.entity.KingSnake;
 import com.sturdyhelmetgames.roomforchange.entity.KingSpider;
 import com.sturdyhelmetgames.roomforchange.entity.Mummy;
 import com.sturdyhelmetgames.roomforchange.entity.Player;
@@ -463,7 +464,7 @@ public class Level {
 				if(entityType == Spider.class || entityType == KingSpider.class)
 					entities.add(new KingSpider(randomX, randomY, this));
 				else
-					entities.add(new Snake(randomX, randomY, this));
+					entities.add(new KingSnake(randomX, randomY, this));
 			} 
 			
 			//enemies escape
@@ -474,7 +475,7 @@ public class Level {
 					entities.add(new KingSpider(randomX, randomY, this));
 				else {
 					if(Math.random() < 0.25)
-						entities.add(new Snake(randomX, randomY, this));
+						entities.add(new KingSnake(randomX, randomY, this));
 					else
 						entities.add(new Mummy(randomX, randomY, this));					
 				}

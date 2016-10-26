@@ -220,20 +220,6 @@ hole-7
   orig: 18, 18
   offset: 0, 0
   index: -1
-king-snake-left-1
-  rotate: false
-  xy: 236, 26
-  size: 18, 18
-  orig: 18, 18
-  offset: 0, 0
-  index: -1
-king-snake-left-2
-  rotate: false
-  xy: 258, 26
-  size: 18, 18
-  orig: 18, 18
-  offset: 0, 0
-  index: -1
 king-spider-dead
   rotate: false
   xy: 214, 4
@@ -638,5 +624,68 @@ win
   xy: 279, 179
   size: 64, 32
   orig: 64, 32
+  offset: 0, 0
+  index: -1
+king-snake-back-1
+  rotate: false
+  xy: 411, 33
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+king-snake-back-2
+  rotate: false
+  xy: 433, 55
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+king-snake-back-3
+  rotate: false
+  xy: 433, 33
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+king-snake-front-1
+  rotate: false
+  xy: 455, 55
+  size: 20, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+king-snake-front-2
+  rotate: false
+  xy: 455, 33
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+king-snake-front-3
+  rotate: false
+  xy: 411, 11
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+king-snake-left-1
+  rotate: false
+  xy: 433, 11
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+king-snake-left-2
+  rotate: false
+  xy: 455, 11
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+king-snake-left-3
+  rotate: false
+  xy: 477, 55
+  size: 18, 18
+  orig: 18, 18
   offset: 0, 0
   index: -1
