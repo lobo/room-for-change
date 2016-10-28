@@ -13,6 +13,7 @@
    limitations under the License. */
 package com.sturdyhelmetgames.roomforchange.entity;
 
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
@@ -178,7 +179,7 @@ public class Player extends Entity {
 			}
 			
 			if(miss_hit)
-				Assets.getGameSound(Assets.SOUND_HIT_AIR).play(0.6f);
+				Assets.getGameSound(Assets.SOUND_HIT_AIR).play(0.5f);
 
 			// double the hit distance for tiles
 			if (direction == Direction.LEFT) {
@@ -208,17 +209,19 @@ public class Player extends Entity {
 		if (!isInvulnerable()) {
 			health--;
 			invulnerableTick = INVULNERABLE_TIME_MIN;
+			if(health > 0)
+				Assets.getGameSound(Assets.SOUND_HURT).play(0.2f);
 		}
 		if (health <= 0 && !isDead() && !isDying()) {
 			state = EntityState.DYING;
-			Assets.getGameSound(Assets.SOUND_DEATH).play(0.5f);
+			Assets.getGameSound(Assets.SOUND_DYING).play(0.1f);
 		}
 	}
 
 	@Override
 	protected void fall() {
 		if (!isFalling() && !isDead()) {
-			Assets.getGameSound(Assets.SOUND_DEATH).play(0.5f);
+			Assets.getGameSound(Assets.SOUND_FALLING).play(0.5f);
 			super.fall();
 		}
 	}

@@ -14,6 +14,8 @@
 package com.sturdyhelmetgames.roomforchange.screen;
 
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.assets.loaders.AssetLoader;
 import com.badlogic.gdx.graphics.Color;
 import com.sturdyhelmetgames.roomforchange.RoomForChangeGame;
 import com.sturdyhelmetgames.roomforchange.assets.Assets;
@@ -49,18 +51,25 @@ public class GameOverScreen extends Basic2DScreen {
 	@Override
 	public boolean keyDown(int keycode) {
 		if (keycode == Keys.Y) {
-			Assets.getGameSound(Assets.SOUND_MUSIC).loop(0.4f);
 			game.setScreen(new GameScreen(game));
+ 			Assets.getGameSound(Assets.SOUND_BUTTON).play(0.5f);
+			Assets.getGameSound(Assets.SOUND_LEVEL1).loop(0.4f);
 		} else if (keycode == Keys.N) {
 			game.setScreen(new MenuScreen(game));
 		}
+		
+		Assets.getGameSound(Assets.SOUND_LOSEGAME).stop();
 		return super.keyDown(keycode);
 	}
 
 	@Override
 	public void show() {
 		super.show();
-		Assets.getGameSound(Assets.SOUND_MUSIC).stop();
+		Assets.getGameSound(Assets.SOUND_LEVEL1).stop();
+		Assets.getGameSound(Assets.SOUND_LEVEL2).stop();
+		Assets.getGameSound(Assets.SOUND_LEVEL3).stop();		
+		Assets.getGameSound(Assets.SOUND_LEVEL4).stop();
+		Assets.getGameSound(Assets.SOUND_LOSEGAME).loop(0.2f);
 	}
 
 }

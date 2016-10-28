@@ -47,18 +47,15 @@ public class WinTheGameScreen extends Basic2DScreen {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		if (keycode == Keys.Y) {
-			game.setScreen(new GameScreen(game));
-		} else if (keycode == Keys.N) {
-			game.setScreen(new MenuScreen(game));
-		}
+		if (keycode == Keys.SPACE)
+			game.setScreen(new CreditScreen(game));
 		return super.keyDown(keycode);
 	}
 
 	@Override
 	public void show() {
 		super.show();
-		Assets.getGameSound(Assets.SOUND_MUSIC).stop();
+		Assets.getGameSound(Assets.SOUND_LEVEL1).stop();
 	}
 
 }

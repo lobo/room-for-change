@@ -43,20 +43,26 @@ public class Assets {
 	
 	public static final String SOUND_STONEDOOR = FOLDER_SOUNDS + "stonedoor.mp3";
 	public static final String SOUND_ENEMYDIE = FOLDER_SOUNDS + "enemydie.wav";
-//	public static final String SOUND_ENEMYDIE = FOLDER_SOUNDS + "enemydie.mp3";
 	public static final String SOUND_COLLECT = FOLDER_SOUNDS + "collect.mp3";
 	public static final String SOUND_PICKUP_ITEM = FOLDER_SOUNDS + "pickupitem.wav";
 	public static final String SOUND_DEATH = FOLDER_SOUNDS + "death.wav";
-//	public static final String SOUND_HIT = FOLDER_SOUNDS + "hit.wav";
 	public static final String SOUND_HIT = FOLDER_SOUNDS + "swordthatcuts.wav";
 	public static final String SOUND_HIT_AIR = FOLDER_SOUNDS + "swordthroughtheair.wav";
 	public static final String SOUND_STEP = FOLDER_SOUNDS + "step2.wav";
 	public static final String SOUND_EXPLOSION = FOLDER_SOUNDS + "explosion.wav";
-//	public static final String SOUND_MUSIC = FOLDER_SOUNDS + "dungeon_music.mp3";
-	public static final String SOUND_MUSIC = FOLDER_SOUNDS + "gameplay2.wav";
+	public static final String SOUND_LEVEL1 = FOLDER_SOUNDS + "level1.wav";
 	public static final String SOUND_LEVEL2 = FOLDER_SOUNDS + "level2.wav";
-//	public static final String SOUND_MUSIC = FOLDER_SOUNDS + "Dark Cave Music - Trickster Imps.mp3";
+	public static final String SOUND_LEVEL3 = FOLDER_SOUNDS + "level3.wav";
+	public static final String SOUND_LEVEL4 = FOLDER_SOUNDS + "level4.wav";
 	public static final String SOUND_INTRO = FOLDER_SOUNDS + "intro.wav";
+	public static final String SOUND_BUTTON = FOLDER_SOUNDS + "button.wav";
+	public static final String SOUND_LOSEGAME = FOLDER_SOUNDS + "end-lose-game.wav";
+	public static final String SOUND_WINGAME = FOLDER_SOUNDS + "end-win-game.wav";
+	public static final String SOUND_HURT = FOLDER_SOUNDS + "hurt.wav";
+	public static final String SOUND_FALLING = FOLDER_SOUNDS + "falling.wav";
+	public static final String SOUND_SIGH = FOLDER_SOUNDS + "sigh.wav";
+	public static final String SOUND_DYING = FOLDER_SOUNDS + "dying.wav";
+
 	
 	public static final String PARTICLE_SANDSTREAM = FOLDER_PARTICLE
 			+ "sandstream.p";
@@ -146,13 +152,22 @@ public class Assets {
 		assetManager.load(SOUND_HIT, Sound.class);
 		assetManager.load(SOUND_DEATH, Sound.class);
 		assetManager.load(SOUND_EXPLOSION, Sound.class);
-		assetManager.load(SOUND_MUSIC, Sound.class);
+		assetManager.load(SOUND_LEVEL1, Sound.class);
 
 		assetManager.load(SOUND_STEP, Sound.class);
 		assetManager.load(SOUND_HIT_AIR, Sound.class);
 		assetManager.load(SOUND_PICKUP_ITEM, Sound.class);
 		assetManager.load(SOUND_INTRO, Sound.class);
 		assetManager.load(SOUND_LEVEL2, Sound.class);
+		assetManager.load(SOUND_LEVEL3, Sound.class);
+		assetManager.load(SOUND_LEVEL4, Sound.class);
+		assetManager.load(SOUND_BUTTON, Sound.class);
+		assetManager.load(SOUND_LOSEGAME, Sound.class);
+		assetManager.load(SOUND_WINGAME, Sound.class);
+		assetManager.load(SOUND_HURT, Sound.class);
+		assetManager.load(SOUND_FALLING, Sound.class);
+		assetManager.load(SOUND_SIGH, Sound.class);
+		assetManager.load(SOUND_DYING, Sound.class);
 		
 		finishLoading();
 		setupAssets();

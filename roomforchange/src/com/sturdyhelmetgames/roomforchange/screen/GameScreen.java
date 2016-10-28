@@ -30,6 +30,11 @@ import com.sturdyhelmetgames.roomforchange.RoomForChangeGame;
 import com.sturdyhelmetgames.roomforchange.assets.Assets;
 import com.sturdyhelmetgames.roomforchange.assets.FontBig;
 import com.sturdyhelmetgames.roomforchange.entity.Entity;
+import com.sturdyhelmetgames.roomforchange.entity.KingSnake;
+import com.sturdyhelmetgames.roomforchange.entity.KingSpider;
+import com.sturdyhelmetgames.roomforchange.entity.Mummy;
+import com.sturdyhelmetgames.roomforchange.entity.Snake;
+import com.sturdyhelmetgames.roomforchange.entity.Spider;
 import com.sturdyhelmetgames.roomforchange.entity.Entity.Direction;
 import com.sturdyhelmetgames.roomforchange.entity.Entity.HoleFallWrapper;
 import com.sturdyhelmetgames.roomforchange.entity.Player;
@@ -100,14 +105,18 @@ public class GameScreen extends Basic2DScreen {
 		
 		if(level.player.collectedItems() == 1 && isLevel0) {
 			isLevel0 = false;
-			Assets.getGameSound(Assets.SOUND_MUSIC).stop();
+			Assets.getGameSound(Assets.SOUND_LEVEL1).stop();
 			Assets.getGameSound(Assets.SOUND_LEVEL2).loop(0.4f);
 		}
 		if(level.player.collectedItems() == 2 && isLevel1) {
 			isLevel1 = false;
+			Assets.getGameSound(Assets.SOUND_LEVEL2).stop();
+			Assets.getGameSound(Assets.SOUND_LEVEL3).loop(0.4f);
 		}
 		if(level.player.collectedItems() == 3 && isLevel2) {
 			isLevel2 = false;
+			Assets.getGameSound(Assets.SOUND_LEVEL3).stop();
+			Assets.getGameSound(Assets.SOUND_LEVEL4).loop(0.4f);
 		}
 		
 	}
@@ -354,10 +363,42 @@ public class GameScreen extends Basic2DScreen {
 		Gdx.input.setInputProcessor(this);
 	}
 
+	public void playSound() {
+		//enemies level 1
+		if(level.player.collectedItems() == 0) 
+			Assets.getGameSound(Assets.SOUND_LEVEL1).loop(0.4f);
+		//enemies level 2
+		if(level.player.collectedItems() == 1)
+			Assets.getGameSound(Assets.SOUND_LEVEL2).loop(0.4f);
+		//enemies level 3
+		if(level.player.collectedItems() == 2)
+			Assets.getGameSound(Assets.SOUND_LEVEL3).loop(0.4f);
+		//enemies escape
+		if(level.player.collectedItems() > 2)
+			Assets.getGameSound(Assets.SOUND_LEVEL4).loop(0.4f);
+	}
+	
 	@Override
 	public void resume() {
+		
+		//enemies level 1
+		if(level.player.collectedItems() == 0) 
+			Assets.getGameSound(Assets.SOUND_LEVEL1).resume();
+
+		//enemies level 2
+		if(level.player.collectedItems() == 1)
+			Assets.getGameSound(Assets.SOUND_LEVEL2).resume();
+
+		//enemies level 3
+		if(level.player.collectedItems() == 2)
+			Assets.getGameSound(Assets.SOUND_LEVEL3).resume();
+		
+		//enemies escape
+		if(level.player.collectedItems() > 2)
+			Assets.getGameSound(Assets.SOUND_LEVEL4).resume();
+		
 		super.resume();
-		Assets.getGameSound(Assets.SOUND_MUSIC).resume();;
+	
 	}
 	
 	public void finishGame() {

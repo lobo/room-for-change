@@ -434,9 +434,7 @@ public class Level {
 	private void spawnNewEnemiesAround(LabyrinthPiece piece,
 			Vector2 currentPieceRelativePos) {
 		final RoomTemplate template = piece.roomTemplate;		
-		
-		System.out.println("enemigos:" + template.getEntityTypes().size);
-		
+				
 		for (int i = 0; i < template.getEntityTypes().size; i++) {
 
 			final float randomX = currentPieceRelativePos.x + 1	+ MathUtils.random(9);

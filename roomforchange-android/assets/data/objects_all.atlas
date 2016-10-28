@@ -108,6 +108,13 @@ gameover
   orig: 64, 32
   offset: 0, 0
   index: -1
+pause
+  rotate: false
+  xy: 345, 12
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
 gem
   rotate: false
   xy: 485, 229
@@ -507,6 +514,13 @@ pyramid
   orig: 271, 177
   offset: 0, 0
   index: -1
+credit
+  rotate: false
+  xy: 508, 71
+  size: 271, 177
+  orig: 271, 177
+  offset: 0, 0
+  index: -1 
 rock
   rotate: false
   xy: 389, 83

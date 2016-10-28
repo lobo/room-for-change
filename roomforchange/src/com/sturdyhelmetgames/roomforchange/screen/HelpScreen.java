@@ -49,6 +49,7 @@ public class HelpScreen extends Basic2DScreen {
 	public boolean keyDown(int keycode) {
 		if (keycode == Keys.SPACE) {
 			game.setScreen(gameScreen);
+			Assets.getGameSound(Assets.SOUND_BUTTON).play(0.5f);
 			Assets.getGameSound(Assets.SOUND_INTRO).stop();
 
 		}
@@ -59,7 +60,7 @@ public class HelpScreen extends Basic2DScreen {
 	public void hide() {
 		super.hide();
 		Assets.getGameSound(Assets.SOUND_INTRO).stop();
-		Assets.getGameSound(Assets.SOUND_MUSIC).loop(0.4f);
+		Assets.getGameSound(Assets.SOUND_LEVEL1).loop(0.4f);
 	}
 
 }

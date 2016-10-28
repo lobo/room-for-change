@@ -29,19 +29,18 @@ public class PauseScreen extends Basic2DScreen {
 		spriteBatch.draw(Assets.getFullGameObject("black"), -6f, -4f, 12f, 8f);
 		spriteBatch.setColor(originalColor);
 		spriteBatch
-				.draw(Assets.getFullGameObject("gameover"), -2f, -1f, 4f, 2f);
+				.draw(Assets.getFullGameObject("pause"), -2f, -1f, 4f, 2f);
 		spriteBatch.end();
 	}
 
 	@Override
 	public boolean keyDown(int keycode) {
 		if (keycode == Keys.Y) {
-			Assets.getGameSound(Assets.SOUND_MUSIC).loop(0.4f);
 			this.hide();
+			gameScreen.playSound();
 			gameScreen.resume();
 			game.setScreen(gameScreen);
-//			game.setScreen(new GameScreen(game));
-			
+			Assets.getGameSound(Assets.SOUND_BUTTON).play(0.5f);
 		} else if (keycode == Keys.N) {
 			game.setScreen(new MenuScreen(game));
 		}
@@ -51,7 +50,11 @@ public class PauseScreen extends Basic2DScreen {
 	@Override
 	public void show() {
 		super.show();
-		Assets.getGameSound(Assets.SOUND_MUSIC).stop();
+		Assets.getGameSound(Assets.SOUND_LEVEL1).stop();
+		Assets.getGameSound(Assets.SOUND_LEVEL2).stop();
+		Assets.getGameSound(Assets.SOUND_LEVEL3).stop();	
+		Assets.getGameSound(Assets.SOUND_LEVEL4).stop();	
+		Assets.getGameSound(Assets.SOUND_BUTTON).play(0.5f);
 	}
 
 }

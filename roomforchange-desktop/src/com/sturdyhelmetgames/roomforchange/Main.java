@@ -19,7 +19,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 public class Main {
 	public static void main(String[] args) {
 		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
-		cfg.title = "roomforchange";
+		cfg.title = "Pyramid Explorer";
 		cfg.useGL20 = true;
 		cfg.vSyncEnabled = true;
 		cfg.foregroundFPS = 10000;
