@@ -48,7 +48,7 @@ public class ExplodingBomb extends Bomb {
 			Assets.getGameSound(Assets.SOUND_EXPLOSION).play(0.7f);
 			for (int i = 0; i < level.entities.size; i++) {
 				final Entity entity = level.entities.get(i);
-				if (entity != level.player
+				if (entity != level.player && !(entity instanceof ExplodingBomb)
 						&& explosionRadius.overlaps(entity.bounds)) {
 					entity.state = EntityState.DYING;
 				} else if (explosionRadius.overlaps(level.player.bounds)) {

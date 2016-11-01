@@ -38,10 +38,12 @@ public class PauseScreen extends Basic2DScreen {
 		if (keycode == Keys.Y) {
 			this.hide();
 			gameScreen.playSound();
+			gameScreen.setPausedGame(false);
 			gameScreen.resume();
 			game.setScreen(gameScreen);
 			Assets.getGameSound(Assets.SOUND_BUTTON).play(0.5f);
 		} else if (keycode == Keys.N) {
+			gameScreen.setPausedGame(false);
 			game.setScreen(new MenuScreen(game));
 		}
 		return super.keyDown(keycode);

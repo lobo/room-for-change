@@ -55,7 +55,32 @@ public class Enemy extends Entity {
 	public void takeDamage() {
 		if (pause <= 0f) {
 			health--;
-			Assets.getGameSound(Assets.SOUND_HIT).play(0.5f);
+
+			if(this instanceof Mummy){
+	 			Assets.getGameSound(Assets.SOUND_HITMUMMY).play(0.5f);
+				Assets.getGameSound(Assets.SOUND_HIT).play(0.5f);				
+			}
+
+			if(this instanceof Snake) {
+	 			Assets.getGameSound(Assets.SOUND_HITSNAKE).play(0.5f);
+	 			Assets.getGameSound(Assets.SOUND_HIT).play(0.9f);
+			}
+
+			if(this instanceof KingSnake) {
+	 			Assets.getGameSound(Assets.SOUND_HITKINGSNAKE).play(0.5f);
+	 			Assets.getGameSound(Assets.SOUND_HIT).play(0.9f);
+			}
+
+			if(this instanceof Spider) {
+	 			Assets.getGameSound(Assets.SOUND_HITSPIDER).play(0.5f);
+	 			Assets.getGameSound(Assets.SOUND_HIT).play(0.9f);				
+			}
+
+			if(this instanceof KingSpider) {
+	 			Assets.getGameSound(Assets.SOUND_HITKINGSPIDER).play(0.5f);	
+	 			Assets.getGameSound(Assets.SOUND_HIT).play(0.9f);			
+			}
+
 			if (health <= 0 && !isDying() && !isDead()) {
 				state = EntityState.DYING;
 				Assets.getGameSound(Assets.SOUND_ENEMYDIE).play(0.5f);

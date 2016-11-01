@@ -59,11 +59,15 @@ public class GameScreen extends Basic2DScreen {
 	private boolean isLevel0 = true;
 	private boolean isLevel1 = true;
 	private boolean isLevel2 = true;
-	private boolean isLevel3 = true;
-	
+	private boolean isLeverOpen = false;
+	private boolean isFishedGame = false;
+	public boolean isPausedGame = false;
+
 	public GameScreen() {
 		super();
 		screenQuake = new ScreenQuake(camera);
+		isFishedGame = false;
+		isPausedGame = false;
 	}
 
 	public GameScreen(RoomForChangeGame game) {
@@ -81,6 +85,7 @@ public class GameScreen extends Basic2DScreen {
 		batchMiniMap = new SpriteBatch();
 
 		level = LabyrinthUtil.generateLabyrinth(4, 4, this);
+		isFishedGame = false;
 	}
 
 	@Override
@@ -117,8 +122,7 @@ public class GameScreen extends Basic2DScreen {
 			isLevel2 = false;
 			Assets.getGameSound(Assets.SOUND_LEVEL3).stop();
 			Assets.getGameSound(Assets.SOUND_LEVEL4).loop(0.4f);
-		}
-		
+		}		
 	}
 
 	@Override
@@ -251,14 +255,14 @@ public class GameScreen extends Basic2DScreen {
 				level.player.moveWithAccel(Direction.LEFT);
 			}
 
-			if (Gdx.input.isKeyPressed(Keys.I)) {
-				camera.zoom += 0.1f;
-				camera.update();
-			}
-			if (Gdx.input.isKeyPressed(Keys.O)) {
-				camera.zoom -= 0.1f;
-				camera.update();
-			}
+//			if (Gdx.input.isKeyPressed(Keys.I)) {
+//				camera.zoom += 0.1f;
+//				camera.update();
+//			}
+//			if (Gdx.input.isKeyPressed(Keys.O)) {
+//				camera.zoom -= 0.1f;
+//				camera.update();
+//			}
 		}
 	}
 
@@ -345,7 +349,16 @@ public class GameScreen extends Basic2DScreen {
 		level.pauseEntities();
 	}
 
+	public boolean isLeverOpen() {
+		return isLeverOpen;
+	}
+	
+	public void closeLever() {
+		isLeverOpen = false;
+	}
+	
 	public void openLeverScreen() {
+		this.isLeverOpen = true;
 		game.setScreen(new LeverScreen(game, this));
 	}
 
@@ -354,7 +367,9 @@ public class GameScreen extends Basic2DScreen {
 	}
 
 	public void pauseScreen() {
+		this.isPausedGame = true;
 		game.setScreen(new PauseScreen(game, this));
+		
 	}
 	
 	@Override
@@ -403,6 +418,22 @@ public class GameScreen extends Basic2DScreen {
 	
 	public void finishGame() {
 		game.setScreen(new WinTheGameScreen(game, this));
+		Assets.getGameSound(Assets.SOUND_LEVEL4).stop();
+		Assets.getGameSound(Assets.SOUND_STEP).stop();
+		Assets.getGameSound(Assets.SOUND_WINGAME).loop(0.4f);
+		Assets.getGameSound(Assets.SOUND_ALLMINE).play(1.0f);
+		isFishedGame = true;
+	}
+	
+	public boolean isFishedGame() {
+		return isFishedGame;
 	}
 
+	public boolean isPausedGame() {
+		return isFishedGame;
+	}
+	
+	public void setPausedGame(boolean value) {
+		isPausedGame = value;
+	}
 }

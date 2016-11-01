@@ -13,12 +13,10 @@
    limitations under the License. */
 package com.sturdyhelmetgames.roomforchange.entity;
 
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.sturdyhelmetgames.roomforchange.assets.Assets;
-import com.sturdyhelmetgames.roomforchange.entity.Entity.Direction;
 import com.sturdyhelmetgames.roomforchange.level.Level;
 import com.sturdyhelmetgames.roomforchange.level.Level.LevelTile;
 
@@ -27,9 +25,9 @@ public class Player extends Entity {
 	public float dyingAnimState = 0f;
 	public float dyingTime = 0f;
 	public float maxDyingTime = 3f;
-	public int health = 3;
+	public int health = 4;
 	public int bombs = 2;
-	public int maxHealth = 3;
+	public int maxHealth = 4;
 	public final Rectangle hitBounds = new Rectangle(0f, 0f, 0.8f, 0.8f);
 	private float tryHitTime = 0.3f;
 
@@ -43,9 +41,15 @@ public class Player extends Entity {
 	
 	public int counter_fps = 0;
 	
+	public boolean hasFallen = false;
+	
 	public Player(float x, float y, Level level) {
 		super(x, y, 1f, 0.6f, level);
 		direction = Direction.UP;
+		hasFallen = false;
+		gotScroll = false;
+		gotTalisman = false;
+		gotGem = false;
 	}
 
 	@Override
@@ -60,9 +64,11 @@ public class Player extends Entity {
 				batch.draw(animation.getKeyFrame(dyingAnimState),
 						bounds.x - 0.1f, bounds.y, width, height + 0.4f);
 			} else if (isDying() || isDead()) {
-				animation = Assets.playerDying;
-				batch.draw(animation.getKeyFrame(dyingAnimState),
-						bounds.x - 0.1f, bounds.y, width, height + 0.4f);
+				if(!hasFallen) {
+					animation = Assets.playerDying;
+					batch.draw(animation.getKeyFrame(dyingAnimState),
+							bounds.x - 0.1f, bounds.y, width, height + 0.4f);					
+				}
 			} else {
 				if (direction == Direction.UP) {
 					animation = Assets.playerWalkBack;
@@ -82,7 +88,9 @@ public class Player extends Entity {
 							
 					//Codigo para los pasos. horrible
 					if(counter_fps == 0) {
-						Assets.getGameSound(Assets.SOUND_STEP).play(0.6f);
+						if(!level.gameScreen.isLeverOpen() && !level.gameScreen.isFishedGame() && !level.gameScreen.isPausedGame())
+							Assets.getGameSound(Assets.SOUND_STEP).play(0.5f);
+
 						counter_fps++;
 					} else if(counter_fps == 60)
 						counter_fps = 0;
@@ -209,12 +217,12 @@ public class Player extends Entity {
 		if (!isInvulnerable()) {
 			health--;
 			invulnerableTick = INVULNERABLE_TIME_MIN;
-			if(health > 0)
-				Assets.getGameSound(Assets.SOUND_HURT).play(0.2f);
+			if(health > 0 && !hasFallen)
+				Assets.getGameSound(Assets.SOUND_HURT).play(0.4f);
 		}
 		if (health <= 0 && !isDead() && !isDying()) {
 			state = EntityState.DYING;
-			Assets.getGameSound(Assets.SOUND_DYING).play(0.1f);
+			Assets.getGameSound(Assets.SOUND_DYING).play(0.4f);
 		}
 	}
 
@@ -222,6 +230,7 @@ public class Player extends Entity {
 	protected void fall() {
 		if (!isFalling() && !isDead()) {
 			Assets.getGameSound(Assets.SOUND_FALLING).play(0.5f);
+			hasFallen = true;
 			super.fall();
 		}
 	}
@@ -242,8 +251,10 @@ public class Player extends Entity {
 	public void dropBomb() {
 		if (level.player.bombs > 0) {
 			level.player.bombs--;
+			Assets.getGameSound(Assets.SOUND_DROPBOMB).play(0.3f);
 			level.entities.add(new ExplodingBomb(bounds.x, bounds.y, level));
-		}
+		} else 
+			Assets.getGameSound(Assets.SOUND_EMPTYBOMB).play(0.5f);
 	}
 	
 	public void moveWithAccel(Direction dir) {

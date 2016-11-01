@@ -66,7 +66,7 @@ public class LabyrinthUtil {
 		while (!scrollSpawned) {
 			scrollSpawned = spawnTreasure(level.getLabyrinth(), Scroll.class);
 		}
-
+		
 		updateLabyrinthTiles(level);
 
 		level.getLabyrinth()[0][0].state = LabyrinthPieceState.LIGHTS_ON;
@@ -114,8 +114,10 @@ public class LabyrinthUtil {
 					final LabyrinthPiece labyrinthPiece = labyrinth[x][y];
 					final int random = MathUtils.random(100);
 					if (random > 30 && random < 60) {
-						labyrinthPiece.roomTemplate.treasureType = treasureClass;
-						return true;
+						if(labyrinthPiece.roomTemplate.treasureType == null) {
+							labyrinthPiece.roomTemplate.treasureType = treasureClass;
+							return true;
+						}
 					}
 				}
 			}

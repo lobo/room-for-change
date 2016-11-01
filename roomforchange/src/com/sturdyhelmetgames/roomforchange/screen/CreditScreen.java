@@ -8,8 +8,6 @@ public class CreditScreen extends Basic2DScreen {
 
 	public CreditScreen(RoomForChangeGame game) {
 		super(game, 12, 8);		
-		Assets.getGameSound(Assets.SOUND_INTRO).loop(0.4f);
-
 	}
 
 	@Override

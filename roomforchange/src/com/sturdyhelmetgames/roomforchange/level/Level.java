@@ -389,47 +389,9 @@ public class Level {
 		final Vector2 currentPiecePos = findCurrentPiecePos();
 		final LabyrinthPiece currentPiece = labyrinth[(int) currentPiecePos.x][(int) currentPiecePos.y];
 		final Vector2 currentPieceRelativePos = findCurrentPieceRelativeToMapPosition();
+
 		spawnNewEnemiesAround(currentPiece, currentPieceRelativePos);
 	}
-
-//	private void spawnNewEnemiesAround(LabyrinthPiece piece,
-//			Vector2 currentPieceRelativePos) {
-//		final RoomTemplate template = piece.roomTemplate;
-//		for (int i = 0; i < template.getEntityTypes().size; i++) {
-//
-//			final float randomX = currentPieceRelativePos.x + 1
-//					+ MathUtils.random(9);
-//			final float randomY = currentPieceRelativePos.y + 1
-//					+ MathUtils.random(5);
-//			final Class<?> entityType = template.getEntityTypes().get(i);
-//			if (entityType == Mummy.class) {
-//				entities.add(new Mummy(randomX, randomY, this));
-//			} else if (entityType == Snake.class) {
-//				entities.add(new Snake(randomX, randomY, this));
-//			} else if (entityType == Spider.class) {
-//				entities.add(new Spider(randomX, randomY, this));
-//			} else if (entityType == KingSpider.class) {
-//				entities.add(new KingSpider(randomX, randomY, this));
-//			}
-//		}
-//
-//		final float randomX = currentPieceRelativePos.x + 2	+ MathUtils.random(7);
-//		final float randomY = currentPieceRelativePos.y + 2 + MathUtils.random(4);
-//		
-//		if (template.treasureType != null) {
-//			if (template.treasureType == Scroll.class && !player.gotScroll) {
-//				entities.add(new Scroll(randomX, randomY, this));
-//			} else if (template.treasureType == Talisman.class && !player.gotTalisman) {
-//				entities.add(new Talisman(randomX, randomY, this));
-//			} else if (template.treasureType == Gem.class && !player.gotGem) {
-//				entities.add(new Gem(randomX, randomY, this));
-//			}
-//		}
-//		if (template.hasExit) {
-//			entities.add(new Exit(currentPieceRelativePos.x + 3,
-//					currentPieceRelativePos.y + 1, this));
-//		}
-//	}
 	
 	private void spawnNewEnemiesAround(LabyrinthPiece piece,
 			Vector2 currentPieceRelativePos) {
@@ -442,7 +404,7 @@ public class Level {
 						
 			//enemies level 1
 			if(player.collectedItems() == 0) {
-				entities.add(new Spider(randomX, randomY, this));
+				entities.add(new Mummy(randomX, randomY, this));
 			} 
 
 			//enemies level 2
@@ -472,14 +434,31 @@ public class Level {
 				if(entityType == Spider.class || entityType == KingSpider.class)
 					entities.add(new KingSpider(randomX, randomY, this));
 				else {
-					if(Math.random() < 0.25)
-						entities.add(new KingSnake(randomX, randomY, this));
-					else
-						entities.add(new Mummy(randomX, randomY, this));					
+					entities.add(new Mummy(randomX, randomY, this));					
 				}
 			} 
+			
 		}
 
+		int mummycounter = 0;
+		int snakecounter = 0;
+		int spidercounter = 0;
+		int kingspidercounter = 0;
+		int kingsnakecounter = 0;
+		
+		for(Entity ene: entities) {
+			if(ene instanceof Mummy && ene.isAlive())
+				mummycounter++;
+			if(ene instanceof Spider && ene.isAlive())
+				spidercounter++;
+			if(ene instanceof KingSpider && ene.isAlive())
+				kingspidercounter++;
+			if(ene instanceof Snake && ene.isAlive())
+				snakecounter++;
+			if(ene instanceof KingSnake && ene.isAlive())
+				kingsnakecounter++;
+		}
+		
 		final float randomX = currentPieceRelativePos.x + 2	+ MathUtils.random(7);
 		final float randomY = currentPieceRelativePos.y + 2 + MathUtils.random(4);
 		

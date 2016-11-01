@@ -48,7 +48,7 @@ public class Assets {
 	public static final String SOUND_DEATH = FOLDER_SOUNDS + "death.wav";
 	public static final String SOUND_HIT = FOLDER_SOUNDS + "swordthatcuts.wav";
 	public static final String SOUND_HIT_AIR = FOLDER_SOUNDS + "swordthroughtheair.wav";
-	public static final String SOUND_STEP = FOLDER_SOUNDS + "step2.wav";
+	public static final String SOUND_STEP = FOLDER_SOUNDS + "step.wav";
 	public static final String SOUND_EXPLOSION = FOLDER_SOUNDS + "explosion.wav";
 	public static final String SOUND_LEVEL1 = FOLDER_SOUNDS + "level1.wav";
 	public static final String SOUND_LEVEL2 = FOLDER_SOUNDS + "level2.wav";
@@ -62,7 +62,17 @@ public class Assets {
 	public static final String SOUND_FALLING = FOLDER_SOUNDS + "falling.wav";
 	public static final String SOUND_SIGH = FOLDER_SOUNDS + "sigh.wav";
 	public static final String SOUND_DYING = FOLDER_SOUNDS + "dying.wav";
-
+	public static final String SOUND_HITMUMMY = FOLDER_SOUNDS + "hit_mummy.wav";
+	public static final String SOUND_HITSNAKE = FOLDER_SOUNDS + "hit_snake.wav";
+	public static final String SOUND_HITKINGSNAKE = FOLDER_SOUNDS + "hit_kingsnake.wav";
+	public static final String SOUND_HITSPIDER= FOLDER_SOUNDS + "hit_spider.wav";
+	public static final String SOUND_HITKINGSPIDER = FOLDER_SOUNDS + "hit_kingspider.wav";
+	public static final String SOUND_LEVER = FOLDER_SOUNDS + "lever.wav";
+	public static final String SOUND_DROPBOMB = FOLDER_SOUNDS + "dropbomb.wav";
+	public static final String SOUND_EMPTYBOMB = FOLDER_SOUNDS + "emptybomb.wav";
+	public static final String SOUND_ALLMINE = FOLDER_SOUNDS + "all_mine.wav";
+	public static final String SOUND_LETGETOUT = FOLDER_SOUNDS + "letgetout.wav";
+	public static final String SOUND_YES = FOLDER_SOUNDS + "yes.wav";
 	
 	public static final String PARTICLE_SANDSTREAM = FOLDER_PARTICLE
 			+ "sandstream.p";
@@ -152,12 +162,11 @@ public class Assets {
 		assetManager.load(SOUND_HIT, Sound.class);
 		assetManager.load(SOUND_DEATH, Sound.class);
 		assetManager.load(SOUND_EXPLOSION, Sound.class);
-		assetManager.load(SOUND_LEVEL1, Sound.class);
-
 		assetManager.load(SOUND_STEP, Sound.class);
 		assetManager.load(SOUND_HIT_AIR, Sound.class);
 		assetManager.load(SOUND_PICKUP_ITEM, Sound.class);
 		assetManager.load(SOUND_INTRO, Sound.class);
+		assetManager.load(SOUND_LEVEL1, Sound.class);
 		assetManager.load(SOUND_LEVEL2, Sound.class);
 		assetManager.load(SOUND_LEVEL3, Sound.class);
 		assetManager.load(SOUND_LEVEL4, Sound.class);
@@ -168,6 +177,17 @@ public class Assets {
 		assetManager.load(SOUND_FALLING, Sound.class);
 		assetManager.load(SOUND_SIGH, Sound.class);
 		assetManager.load(SOUND_DYING, Sound.class);
+		assetManager.load(SOUND_HITMUMMY, Sound.class);
+		assetManager.load(SOUND_HITSNAKE,Sound.class);
+		assetManager.load(SOUND_HITKINGSNAKE,Sound.class);
+		assetManager.load(SOUND_HITSPIDER,Sound.class);
+		assetManager.load(SOUND_HITKINGSPIDER,Sound.class);
+		assetManager.load(SOUND_LEVER, Sound.class);
+		assetManager.load(SOUND_DROPBOMB, Sound.class);
+		assetManager.load(SOUND_EMPTYBOMB, Sound.class);
+		assetManager.load(SOUND_ALLMINE, Sound.class);
+		assetManager.load(SOUND_YES, Sound.class);
+		assetManager.load(SOUND_LETGETOUT, Sound.class);
 		
 		finishLoading();
 		setupAssets();

@@ -58,6 +58,7 @@ public class GameOverScreen extends Basic2DScreen {
 			game.setScreen(new MenuScreen(game));
 		}
 		
+		Assets.getGameSound(Assets.SOUND_FALLING).stop();
 		Assets.getGameSound(Assets.SOUND_LOSEGAME).stop();
 		return super.keyDown(keycode);
 	}

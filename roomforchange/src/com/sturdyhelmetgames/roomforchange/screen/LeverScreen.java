@@ -97,6 +97,7 @@ public class LeverScreen extends Basic2DScreen {
 				gameScreen.startScreenQuake(Level.RIGHT);
 				leverDirection = RIGHT;
 			} else if (keycode == Keys.Z || keycode == Keys.ESCAPE) {
+				gameScreen.closeLever();
 				Gdx.input.setInputProcessor(gameScreen);
 				game.setScreen(gameScreen);
 			}

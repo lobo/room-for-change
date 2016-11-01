@@ -47,8 +47,11 @@ public class WinTheGameScreen extends Basic2DScreen {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		if (keycode == Keys.SPACE)
+		if (keycode == Keys.SPACE){
 			game.setScreen(new CreditScreen(game));
+			Assets.getGameSound(Assets.SOUND_BUTTON).play(0.5f);			
+		}
+
 		return super.keyDown(keycode);
 	}
 
